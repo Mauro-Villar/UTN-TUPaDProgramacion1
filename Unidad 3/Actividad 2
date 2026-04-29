@@ -1,0 +1,53 @@
+usuario_correcto = "alumno"
+clave_correcta = "python123"
+
+intentos = 0
+ingreso_correcto = False
+
+while intentos < 3 and ingreso_correcto == False:
+    usuario = input("Ingresa usuario: ")
+    clave = input("Ingresa clave: ")
+
+    if usuario == usuario_correcto and clave == clave_correcta:
+        print("Acceso concedido")
+        ingreso_correcto = True
+    else:
+        print("Usuario o clave incorrectos")
+        intentos += 1
+
+if ingreso_correcto == False:
+    print("Cuenta bloqueada")
+else:
+    opcion = 0
+
+    while opcion != 4:
+        print("1. Ver estado de inscripción")
+        print("2. Cambiar clave")
+        print("3. Ver mensaje")
+        print("4. Salir")
+
+        opcion = int(input("Ingresa una opción: "))
+
+        if opcion == 1:
+            print("Inscripto")
+
+        elif opcion == 2:
+            nueva_clave = input("Ingresa la nueva clave: ")
+            confirmar_clave = input("Confirma la nueva clave: ")
+
+            if len(nueva_clave) < 6:
+                print("La clave debe tener al menos 6 caracteres")
+            elif nueva_clave == confirmar_clave:
+                clave_correcta = nueva_clave
+                print("Clave cambiada correctamente")
+            else:
+                print("Las claves no coinciden")
+
+        elif opcion == 3:
+            print("Seguí adelante, vas muy bien")
+
+        elif opcion == 4:
+            print("Saliendo del sistema")
+
+        else:
+            print("Opción incorrecta")
